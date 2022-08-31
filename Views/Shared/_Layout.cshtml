@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - dotnet_core_ts</title>
     <script src="~/dist/site.entry.js" defer></script>
     <link rel="stylesheet" href="~/dist/site.css">
+    <link rel="stylesheet" href="~/dotnet-core-ts.styles.css" />
 </head>
 <body>
     <header>
@@ -40,7 +41,7 @@
             &copy; 2022 - dotnet_core_ts - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/js/app.js"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

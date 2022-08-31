@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using dotnet_core_ts.Models;
+using Newtonsoft.Json;
 
 namespace dotnet_core_ts.Controllers;
 
@@ -15,6 +16,17 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        if(TempData.ContainsKey("user")){
+            UserResponse user = JsonConvert.DeserializeObject<UserResponse>(TempData["user"] as string);
+            Console.WriteLine("Age = "+ user.Age +", Gender = "+user.Gender.ToString());
+            TempData.Keep();
+        }
+        if(TempData.ContainsKey("users")){
+            List<UserResponse> users = JsonConvert.DeserializeObject<List<UserResponse>>(TempData["users"] as string);
+            Console.WriteLine("Total users count = " + users.Count);
+            TempData.Keep();
+        }
+        
         return View();
     }
 
